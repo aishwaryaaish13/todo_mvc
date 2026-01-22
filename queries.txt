@@ -1,0 +1,45 @@
+CREATE TABLE students (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    age INTEGER NOT NULL,
+    course TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+INSERT INTO students (name, email, age, course)
+VALUES
+('Amit Sharma', 'amit.sharma@gmail.com', 22, 'Full Stack Development'),
+('Priya Verma', 'priya.verma@gmail.com', 20, 'Data Science'),
+('Rahul Singh', 'rahul.singh@gmail.com', 24, 'Backend Development'),
+('Neha Gupta', 'neha.gupta@gmail.com', 19, 'Frontend Development'),
+('Karan Mehta', 'karan.mehta@gmail.com', 26, 'Full Stack Development'),
+('Sneha Patel', 'sneha.patel@gmail.com', 21, 'Data Science');
+
+SELECT * FROM students;
+SELECT * FROM students
+WHERE age > 20;
+
+UPDATE students
+SET age = 25
+WHERE email = 'rahul.singh@gmail.com';
+
+UPDATE students
+SET course = 'UI/UX Development'
+WHERE course = 'Frontend Development';
+
+DELETE FROM students
+WHERE id = 4;
+
+DELETE FROM students
+WHERE age < 20;
+
+select * from students
+ OUTPUT AFTER THE ALL THE QUERIES EXECUTED
+ ----------------------------------------------------
+ | id | name        | email                 | age | course                 | created_at                 |
+| -- | ----------- | --------------------- | --- | ---------------------- | -------------------------- |
+| 1  | Amit Sharma | amit.sharma@gmail.com | 22  | Full Stack Development | 2026-01-22 12:46:40.122012 |
+| 2  | Priya Verma | priya.verma@gmail.com | 20  | Data Science           | 2026-01-22 12:46:40.122012 |
+| 5  | Karan Mehta | karan.mehta@gmail.com | 26  | Full Stack Development | 2026-01-22 12:46:40.122012 |
+| 6  | Sneha Patel | sneha.patel@gmail.com | 21  | Data Science           | 2026-01-22 12:46:40.122012 |
+| 3  | Rahul Singh | rahul.singh@gmail.com | 25  | Backend Development    | 2026-01-22 12:46:40.122012 |
